@@ -1,0 +1,39 @@
+<form #loginForm="ngForm">
+    <label>userName</label><input type="text" [(ngModel)]="temp.name" name="Username"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #Username="ngModel" required><br>
+
+    <div *ngIf="Username.errors &&(Username.touched || Username.dirty)" style="color: red">
+        <small [hidden]="!Username.errors?.pattern">
+            Invalid email format.
+        </small>
+    </div>
+
+    <div *ngIf="Username.invalid && (Username.dirty||Username.touched)" style="color: red">
+        <small *ngIf="Username.errors">
+            First Name is required.
+        </small>
+    </div>
+
+    <label>password</label><input type="text" [(ngModel)]="temp.password" name="password" #password="ngModel"
+        required><br>
+    <div *ngIf="password.invalid && (password.dirty||password.touched)" style="color: red">
+        <small *ngIf="password.errors">
+            Password is required.
+        </small>
+    </div>
+
+
+    <button (click)="submitFunction()">Submit</button>
+</form>
+
+<table>
+    <tr *ngFor="let data of studentData">
+        <td>
+            {{data.name }}
+        </td>
+        <td>
+            {{data.password}}
+        </td>
+
+    </tr>
+</table>

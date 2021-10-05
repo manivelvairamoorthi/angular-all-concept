@@ -1,0 +1,11 @@
+<app-child [name]="parentname" (sendData)="receiveData($event)"></app-child>
+
+<table>
+    <tr *ngFor="let data of array ">
+        <td>{{data.name}}</td>
+        <td>{{data.age}}</td>
+    </tr>
+</table>
+
+
+

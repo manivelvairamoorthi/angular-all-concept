@@ -1,2 +1,17 @@
-<app-top-nav></app-top-nav>
+<!-- <app-sample></app-sample><br>
+<app-top-nav></app-top-nav> -->
+<!-- appcomponent
+{{fromsub}} -->
+<!-- <app-top-nav *ngIf="show" title={{title}}></app-top-nav>
+<input type="text" [(ngModel)]="title"> -->
+
+<!-- lifecyclehook start -->
+<app-life-cycle-hook *ngIf="show" title="{{title}}"></app-life-cycle-hook>
+<input type="text" [(ngModel)]="title"> 
+<!-- lifecyclehook end -->
+
+<button (click)="toogle()">toogle</button>
 <router-outlet></router-outlet>
+
+
+
