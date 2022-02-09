@@ -8,10 +8,12 @@ import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 
+
+
 export class RepositoryService {
-  
+
   //subject star
- sub!: Subject<any>;
+  sub!: Subject<any>;
   obs!: Observable<any>
   //subject end
 
@@ -27,12 +29,15 @@ export class RepositoryService {
 
   //replay subject start
 
-  private replaySub!:ReplaySubject<number>
-  replayObs!:Observable<number>
+  private replaySub!: ReplaySubject<number>
+  replayObs!: Observable<number>
 
   //replay subject end
 
   count = 5
+  isuserempty!: boolean;
+  ispasswordempty!: boolean;
+  loginstatus!: boolean;
   constructor(private http: HttpClient) {
     //subject star
     this.sub = new Subject<any>();
@@ -49,9 +54,24 @@ export class RepositoryService {
 
     //replay subject
 
-    this.replaySub=new ReplaySubject<number>(3)
-    this.replayObs=this.replaySub.asObservable();
+    this.replaySub = new ReplaySubject<number>(3)
+    this.replayObs = this.replaySub.asObservable();
 
+  }
+
+  checkvaliduserlogin(username: any, password: any) {
+  
+    if ((username == "test") && (password=="test")) {
+      this.isuserempty=true
+      return this.loginstatus = true;
+    }
+    else if((username = "") && (password="test")){
+      this.isuserempty=false;
+      return this.loginstatus = false;
+    }
+    else{
+      return this.loginstatus = false;
+    }
   }
 
   //subject start
@@ -69,18 +89,18 @@ export class RepositoryService {
 
   //subject beh end
 
-//replay subject
+  //replay subject
 
-sendReplyData(data: any) {
-  this.replaySub.next(data)
-}
-
-//replay subject
-
-  userlist(): Observable<any> {
-
-    return this.http.get(environment.apiEndPoint + 'bio/projectAll');
+  sendReplyData(data: any) {
+    this.replaySub.next(data)
   }
+
+  //replay subject
+
+  // userlist(): Observable<any> {
+
+  //   return this.http.get(environment.apiEndPoint + 'bio/projectAll');
+  // }
 
   postData(requested: any): Observable<any> {
 

@@ -1,6 +1,5 @@
-<p>lazzy works!</p>
-<form [formGroup]="userform" (ngSubmit)="submit()">
-    <input type="text" id="name" name="name" formControlName="name">
-    <input type="text" id="password" name="password" formControlName="password">
-<button>submit</button>
-</form>
+<cdk-virtual-scroll-viewport class="list-container list-group" autosize>
+	<div *cdkVirtualFor="let size of ARRAY_SIZE; let i = index" class="list-group-item" [style.height.px]="size">
+		Item {{i}}
+	</div>
+</cdk-virtual-scroll-viewport>

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { RepositoryService } from '../repository.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-sample',
@@ -13,7 +13,7 @@ export class SampleComponent implements OnInit {
 
   @ViewChild('loginForm', { static: false }) loginform: any;
 
-  constructor(public repservice: RepositoryService, private route: ActivatedRoute,
+  constructor(public repservice: RepositoryService,
     private router:Router
     ) { }
   parentName = "Welcome";
@@ -29,12 +29,12 @@ export class SampleComponent implements OnInit {
     { string: "test1", age: 12 },
   ]
   ngOnInit(): void {
-    console.log("component initilize")
+    // console.log("component initilize")
 
 
   }
   submit() {
-    console.log("333333333333")
+    // console.log("333333333333")
     const test = { name: "ragu", age: "120" }
     this.array.push(test);
   }
@@ -42,7 +42,7 @@ export class SampleComponent implements OnInit {
     this.repservice.count++
   }
   receivData(event: any) {
-    console.log(event);
+  
     this.studentData.push(event);
   }
 

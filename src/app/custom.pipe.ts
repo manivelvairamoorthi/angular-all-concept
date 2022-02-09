@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class AppendPipe implements PipeTransform {
     transform(value: any) {
-        console.log("11111111111111111")
+       
         return value + "wecome"
     }
 

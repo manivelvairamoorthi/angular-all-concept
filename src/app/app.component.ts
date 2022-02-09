@@ -9,22 +9,22 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title:any = 'Welcom Angular';
+  title:any = '';
   fromsub = "";
   show:boolean=false;
   constructor(private service: RepositoryService) {
 
 
-    this.service.sub.subscribe(x => {
-      this.fromsub = x;
-      // console.log("subject response", x)
-    });
+    // this.service.sub.subscribe(x => {
+    //   this.fromsub = x;
+    //   console.log("subject response", x)
+    // });
 
     //asobservable
-    this.service.obs.subscribe(x => {
-      // console.log("welcome    welcome", x);
-      this.fromsub = x;
-    });
+    // this.service.obs.subscribe(x => {
+    //    console.log("welcome    welcome", x);
+    //   this.fromsub = x;
+    // });
 
 
     //subject beh start
@@ -33,15 +33,15 @@ export class AppComponent {
     // })
 
 
-    this.service.behObs.subscribe(x => {
-      // console.log("beh---subject", x)
-    })
+    // this.service.behObs.subscribe(x => {
+    //   console.log("beh---subject", x)
+    // })
     //subject beh end
 
     //subject beh start
-     this.service.replayObs.subscribe(x=>{
-      console.log("replay------subject",x)
-    })
+    //  this.service.replayObs.subscribe(x=>{
+    //    console.log("replay------subject",x)
+    // })
     //subject beh end
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { from, fromEvent, interval, of, Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { RepositoryService } from '../repository.service';
@@ -11,7 +11,7 @@ import { RepositoryService } from '../repository.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: RepositoryService, private route: ActivatedRoute,
+  constructor(private service: RepositoryService, 
     private router:Router) { }
   isSub: boolean = false;
   count=0;
